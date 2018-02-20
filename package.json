@@ -1,0 +1,26 @@
+{
+  "name": "send-to-peoplesoft",
+  "version": "0.1.0",
+  "description": "CLI tool to send directory files to a PeopleSoft server.",
+  "main": "index.js",
+  "repository": "https://github.com/hp-mobile/send-to-peoplesoft",
+  "author": "Jonathan Rehm <jrehm@mhighpoint.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "commander": "^2.14.1",
+    "dotenv": "^5.0.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "prettier": "^1.10.2"
+  },
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "bin": "./index.js"
+}
