@@ -38,6 +38,16 @@ const authOptions = {
   pass: HTTP_PASSWORD
 };
 
+const handleResponse = resp => {
+  if (resp.statusCode !== 200 || parseInt(resp.headers['x-status-code'], 10) !== 201) {
+    throw Error('Upload failed');
+  }
+};
+
+const handleError = err => {
+  console.error(err.message);
+}
+
 fs.readdirSync(program.dir).forEach(item => {
   const extension = path.extname(item);
 
@@ -56,14 +66,8 @@ fs.readdirSync(program.dir).forEach(item => {
       if (program.withAuth) options.auth = authOptions;
 
       request(options)
-        .then(resp => {
-          if (resp.statusCode !== 200 && resp.statusCode !== 201) {
-            throw Error('Upload failed');
-          }
-        })
-        .catch(err => {
-          console.log(err.message);
-        });
+        .then(handleResponse)
+        .catch(handleError);
       break;
     }
 
@@ -80,14 +84,26 @@ fs.readdirSync(program.dir).forEach(item => {
       if (program.withAuth) options.auth = authOptions;
 
       request(options)
-        .then(resp => {
-          if (resp.statusCode !== 200 && resp.statusCode !== 201) {
-            throw Error('Upload failed');
-          }
-        })
-        .catch(err => {
-          console.log(err.message);
-        });
+        .then(handleResponse)
+        .catch(handleError);
+      break;
+    }
+
+    // Twig
+    case '.twig': {
+      const fileName = item.replace(extension, '_twig').toUpperCase();
+      const htmlContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
+      const options = {
+        method: 'POST',
+        uri: `${url}.IScript_AddHTML?html=${fileName}&postDataBin=y`,
+        body: htmlContent,
+        headers: { 'content-type': 'text/html' }
+      };
+      if (program.withAuth) options.auth = authOptions;
+
+      request(options)
+        .then(handleResponse)
+        .catch(handleError);
       break;
     }
 
