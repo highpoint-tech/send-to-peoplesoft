@@ -40,7 +40,7 @@ const authOptions = {
 
 const handleResponse = resp => {
   if (resp.statusCode !== 200 || parseInt(resp.headers['x-status-code'], 10) !== 201) {
-    throw Error('Upload failed');
+    throw Error(`Upload failed: ${resp.body}`);
   }
 };
 
