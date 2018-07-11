@@ -39,14 +39,17 @@ const authOptions = {
 };
 
 const handleResponse = resp => {
-  if (resp.statusCode !== 200 || parseInt(resp.headers['x-status-code'], 10) !== 201) {
+  if (
+    resp.statusCode !== 200 ||
+    parseInt(resp.headers['x-status-code'], 10) !== 201
+  ) {
     throw Error(`Upload failed: ${resp.body}`);
   }
 };
 
 const handleError = err => {
   console.error(err.message);
-}
+};
 
 fs.readdirSync(program.dir).forEach(item => {
   const extension = path.extname(item);
