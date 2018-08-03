@@ -38,13 +38,14 @@ const authOptions = {
   pass: HTTP_PASSWORD
 };
 
-const handleResponse = resp => {
+const handleResponse = fileName => resp => {
   if (
     resp.statusCode !== 200 ||
     parseInt(resp.headers['x-status-code'], 10) !== 201
   ) {
     throw Error(`Upload failed: ${resp.body}`);
   }
+  console.log(`Uploaded: ${fileName}`);
 };
 
 const handleError = err => {
@@ -69,7 +70,7 @@ fs.readdirSync(program.dir).forEach(item => {
       if (program.withAuth) options.auth = authOptions;
 
       request(options)
-        .then(handleResponse)
+        .then(handleResponse(item))
         .catch(handleError);
       break;
     }
@@ -87,7 +88,7 @@ fs.readdirSync(program.dir).forEach(item => {
       if (program.withAuth) options.auth = authOptions;
 
       request(options)
-        .then(handleResponse)
+        .then(handleResponse(item))
         .catch(handleError);
       break;
     }
@@ -105,7 +106,7 @@ fs.readdirSync(program.dir).forEach(item => {
       if (program.withAuth) options.auth = authOptions;
 
       request(options)
-        .then(handleResponse)
+        .then(handleResponse(item))
         .catch(handleError);
       break;
     }
