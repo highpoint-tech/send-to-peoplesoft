@@ -30,8 +30,8 @@ const request = Request.defaults({
 });
 
 const url =
-  `https://${ISCRIPT_HOSTNAME}/psc/${ISCRIPT_ENVIRONMENT}/EMPLOYEE/${ISCRIPT_NODE}/s/` +
-  'WEBLIB_H_DEV.ISCRIPT1.FieldFormula';
+  `https://${ISCRIPT_HOSTNAME}/psc/${ISCRIPT_ENVIRONMENT}/EMPLOYEE/` +
+  `${ISCRIPT_NODE}/s/WEBLIB_H_DEV.ISCRIPT1.FieldFormula`;
 
 const authOptions = {
   user: HTTP_USERNAME,

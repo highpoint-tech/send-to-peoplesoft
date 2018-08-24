@@ -4,7 +4,7 @@ Sends a directory of assets (CSS, JS, and SCSS) to PeopleSoft.
 
 ## Installation
 
-`yarn add -D send-to-peoplesoft`
+`yarn add -D @highpoint/send-to-peoplesoft`
 
 ## Usage
 
