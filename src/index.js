@@ -24,6 +24,10 @@ program
   .option('--with-auth', 'send HTTP credentials with request')
   .parse(process.argv);
 
+const handleError = ({ message }) => {
+  console.error(message);
+};
+
 (async () => {
   const request = Request.defaults({
     headers: { 'User-Agent': 'request' },
@@ -48,10 +52,6 @@ program
       throw Error(`Upload failed: ${response.body}`);
     }
     console.log(`Uploaded: ${fileName}`);
-  };
-
-  const handleError = err => {
-    console.error(err.message);
   };
 
   fs.readdirSync(program.dir).forEach(item => {
@@ -118,4 +118,4 @@ program
       // Ignore
     }
   });
-})();
+})().catch(handleError);
