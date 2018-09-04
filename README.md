@@ -25,10 +25,13 @@ then also include `--with-auth` in the command.
 
 Copy `.env-sample` to `.env` and fill in the required fields.
 
-| Variable            | Example                   |
-| ------------------- | ------------------------- |
-| ISCRIPT_HOSTNAME    | example.com               |
-| ISCRIPT_ENVIRONMENT | csdev92                   |
-| ISCRIPT_NODE        | SA                        |
-| HTTP_USERNAME       | user                      |
-| HTTP_PASSWORD       | password                  |
+| Variable            | Required | Example                   |
+| ------------------- | -------- | ------------------------- |
+| PS_HOSTNAME         | True     | example.com               |
+| PS_ENVIRONMENT      | True     | csdev92                   |
+| PS_NODE             | True     | SA                        |
+| PS_USERNAME         | True     | user                      |
+| PS_PASSWORD         | True     | password                  |
+| ISCRIPT_RECORD      | False    | WEBLIB_H_DEV              |
+| HTTP_USERNAME       | False    | user                      |
+| HTTP_PASSWORD       | False    | password                  |

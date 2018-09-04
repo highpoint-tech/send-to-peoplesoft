@@ -11,12 +11,14 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@highpoint/get-ps-token": "^0.1.0",
     "commander": "^2.14.1",
     "dotenv": "^6.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
+    "@highpoint/eslint-config": "^0.1.1",
     "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
     "husky": "^0.14.3",
