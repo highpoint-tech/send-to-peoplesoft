@@ -1,3 +1,6 @@
+# v0.3.2
+* Handle invalid usernames/passwords
+
 # v0.3.1
 * Fix file path
 
