@@ -5,7 +5,7 @@ const getToken = require('@highpoint/get-ps-token');
 const path = require('path');
 const program = require('commander');
 const Request = require('request-promise');
-const { version } = require('./package');
+const { version } = require('../package');
 
 require('dotenv').config({ silent: true });
 
