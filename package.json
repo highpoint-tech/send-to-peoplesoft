@@ -2,7 +2,7 @@
   "name": "@highpoint/send-to-peoplesoft",
   "version": "0.3.0",
   "description": "CLI tool to send directory files to a PeopleSoft server.",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hp-mobile/send-to-peoplesoft.git"
@@ -29,5 +29,5 @@
     "lint": "eslint .",
     "precommit": "lint-staged"
   },
-  "bin": "./index.js"
+  "bin": "src/index.js"
 }
