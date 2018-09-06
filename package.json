@@ -1,6 +1,6 @@
 {
   "name": "@highpoint/send-to-peoplesoft",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "CLI tool to send directory files to a PeopleSoft server.",
   "main": "src/index.js",
   "repository": {

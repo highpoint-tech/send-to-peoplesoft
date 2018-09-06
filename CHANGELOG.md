@@ -1,3 +1,8 @@
+# v0.4.0
+Breaking changes:
+
+* Exit with error status on failed upload
+
 # v0.3.2
 * Handle invalid usernames/passwords
 
