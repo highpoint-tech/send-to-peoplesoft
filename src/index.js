@@ -26,6 +26,7 @@ program
 
 const handleError = ({ message }) => {
   console.error(message);
+  process.exit(1);
 };
 
 (async () => {
