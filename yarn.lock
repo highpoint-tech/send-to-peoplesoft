@@ -24,7 +24,7 @@
     eslint-plugin-import "^2.14.0"
 
 "@highpoint/get-ps-token@^0.1.0":
-  version "0.1.1"
+  version "0.1.2"
   resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.1.1.tgz#44c786155c4043d99651c158c7c9b3c794f26305"
   dependencies:
     request "^2.88.0"
