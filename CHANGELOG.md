@@ -1,3 +1,6 @@
+# v0.4.1
+* Upgrade to latest `@highpoint/get-ps-token`.
+
 # v0.4.0
 Breaking changes:
 
