@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hp-mobile/send-to-peoplesoft.git"
+    "url": "git+https://github.com/highpoint-tech/send-to-peoplesoft.git"
   },
   "author": "HighPoint <support@mhighpoint.com>",
   "license": "MIT",
