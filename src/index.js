@@ -114,6 +114,24 @@ const handleError = ({ message }) => {
         break;
       }
 
+      // html
+      case '.html': {
+        const fileName = item.replace(extension, '').toUpperCase();
+        const htmlContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
+        const options = {
+          method: 'POST',
+          uri: `${url}.IScript_AddHTML?html=${fileName}&postDataBin=y`,
+          body: htmlContent,
+          headers: { 'content-type': 'text/html' }
+        };
+        if (program.withAuth) options.auth = authOptions;
+
+        request(options)
+          .then(handleResponse(item))
+          .catch(handleError);
+        break;
+      }
+
       // Everything else
       default:
       // Ignore

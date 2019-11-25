@@ -1,6 +1,6 @@
 # Send to PeopleSoft
 
-Sends a directory of assets (CSS, JS, and SCSS) to PeopleSoft.
+Sends a directory of assets (CSS, JS, HTML and SCSS) to PeopleSoft.
 
 ## Installation
 

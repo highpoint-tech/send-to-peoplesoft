@@ -1,3 +1,6 @@
+# v0.5.0
+* Add support for uploading *.html files
+
 # v0.4.1
 * Upgrade to latest `@highpoint/get-ps-token`.
 
