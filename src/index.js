@@ -48,21 +48,21 @@ const handleError = ({ message }) => {
     pass: HTTP_PASSWORD
   };
 
-  const handleResponse = fileName => response => {
+  const handleResponse = ({ item, fileName }) => response => {
     if (
       response.statusCode !== 200 ||
       parseInt(response.headers['x-status-code'], 10) !== 201
     ) {
       throw Error(`Upload failed: ${response.body}`);
     }
-    console.log(`Uploaded: ${fileName}`);
+    console.log(`Uploaded: ${item} to PS Object "${fileName}"`);
   };
 
   fs.readdirSync(program.dir).forEach(item => {
     const extension = path.extname(item);
     const unparsedFilename = item.toUpperCase().startsWith('H_')
       ? item
-      : `H_${item}`;
+      : `H_${item}`.toUpperCase();
     switch (extension) {
       // CSS & SCSS
       case '.css':
@@ -78,7 +78,7 @@ const handleError = ({ message }) => {
         if (program.withAuth) options.auth = authOptions;
 
         request(options)
-          .then(handleResponse(item))
+          .then(handleResponse({ item, fileName }))
           .catch(handleError);
         break;
       }
@@ -96,7 +96,7 @@ const handleError = ({ message }) => {
         if (program.withAuth) options.auth = authOptions;
 
         request(options)
-          .then(handleResponse(item))
+          .then(handleResponse({ item, fileName }))
           .catch(handleError);
         break;
       }
@@ -114,7 +114,7 @@ const handleError = ({ message }) => {
         if (program.withAuth) options.auth = authOptions;
 
         request(options)
-          .then(handleResponse(item))
+          .then(handleResponse({ item, fileName }))
           .catch(handleError);
         break;
       }
@@ -138,7 +138,7 @@ const handleError = ({ message }) => {
         if (program.withAuth) options.auth = authOptions;
 
         request(options)
-          .then(handleResponse(item))
+          .then(handleResponse({ item, fileName }))
           .catch(handleError);
         break;
       }
