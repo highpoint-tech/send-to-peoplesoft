@@ -62,12 +62,12 @@ const handleError = ({ message }) => {
     const extension = path.extname(item);
     const unparsedFilename = item.toUpperCase().startsWith('H_')
       ? item
-      : `H_${item}`.toUpperCase();
+      : `h_${item}`;
     switch (extension) {
       // CSS & SCSS
       case '.css':
       case '.scss': {
-        const fileName = unparsedFilename.replace(extension, '');
+        const fileName = unparsedFilename.replace(extension, '').toUpperCase();
         const styleContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -85,7 +85,9 @@ const handleError = ({ message }) => {
 
       // JavaScript
       case '.js': {
-        const fileName = unparsedFilename.replace(extension, '_JS');
+        const fileName = unparsedFilename
+          .replace(extension, '_js')
+          .toUpperCase();
         const scriptContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -103,7 +105,9 @@ const handleError = ({ message }) => {
 
       // Twig
       case '.twig': {
-        const fileName = unparsedFilename.replace(extension, '_TWIG');
+        const fileName = unparsedFilename
+          .replace(extension, '_twig')
+          .toUpperCase();
         const htmlContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -121,7 +125,7 @@ const handleError = ({ message }) => {
 
       // html
       case '.html': {
-        const fileName = unparsedFilename.replace(extension, '');
+        const fileName = unparsedFilename.replace(extension, '').toUpperCase();
         const plainHtmlContent = fs.readFileSync(
           `${program.dir}/${item}`,
           'utf8'
