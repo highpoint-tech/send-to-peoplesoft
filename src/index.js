@@ -5,6 +5,9 @@ const getToken = require('@highpoint/get-ps-token');
 const path = require('path');
 const program = require('commander');
 const Request = require('request-promise');
+const posthtml = require('posthtml');
+const posthtmlPsBinding = require('posthtml-peoplesoft-binding');
+
 const { version } = require('../package');
 
 require('dotenv').config({ silent: true });
@@ -57,12 +60,12 @@ const handleError = ({ message }) => {
 
   fs.readdirSync(program.dir).forEach(item => {
     const extension = path.extname(item);
-
+    const unparsedFilename = item.startsWith('h_') ? item : `h_${item}`;
     switch (extension) {
       // CSS & SCSS
       case '.css':
       case '.scss': {
-        const fileName = item.replace(extension, '').toUpperCase();
+        const fileName = unparsedFilename.replace(extension, '').toUpperCase();
         const styleContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -80,7 +83,9 @@ const handleError = ({ message }) => {
 
       // JavaScript
       case '.js': {
-        const fileName = item.replace(extension, '_js').toUpperCase();
+        const fileName = unparsedFilename
+          .replace(extension, '_js')
+          .toUpperCase();
         const scriptContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -98,7 +103,9 @@ const handleError = ({ message }) => {
 
       // Twig
       case '.twig': {
-        const fileName = item.replace(extension, '_twig').toUpperCase();
+        const fileName = unparsedFilename
+          .replace(extension, '_twig')
+          .toUpperCase();
         const htmlContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
         const options = {
           method: 'POST',
@@ -116,8 +123,14 @@ const handleError = ({ message }) => {
 
       // html
       case '.html': {
-        const fileName = item.replace(extension, '').toUpperCase();
-        const htmlContent = fs.readFileSync(`${program.dir}/${item}`, 'utf8');
+        const fileName = unparsedFilename.replace(extension, '').toUpperCase();
+        const plainHtmlContent = fs.readFileSync(
+          `${program.dir}/${item}`,
+          'utf8'
+        );
+        const htmlContent = posthtml()
+          .use(posthtmlPsBinding())
+          .process(plainHtmlContent, { sync: true }).html;
         const options = {
           method: 'POST',
           uri: `${url}.IScript_AddHTML?html=${fileName}&postDataBin=y`,
