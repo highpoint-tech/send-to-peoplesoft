@@ -59,8 +59,10 @@ const handleError = ({ message }) => {
   };
 
   fs.readdirSync(program.dir).forEach(item => {
-    const extension = path.extname(item).toUpperCase();
-    const unparsedFilename = item.toUpperCase().replace(extension, '');
+    const extension = path.extname(item);
+    const unparsedFilename = item
+      .toUpperCase()
+      .replace(extension.toUpperCase(), '');
     switch (extension) {
       // CSS & SCSS
       case '.css':
