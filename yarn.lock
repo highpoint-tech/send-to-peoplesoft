@@ -23,10 +23,10 @@
     eslint-config-airbnb-base "^13.1.0"
     eslint-plugin-import "^2.14.0"
 
-"@highpoint/get-ps-token@^0.2.0-alpha0":
-  version "0.2.0-alpha0"
-  resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.2.0-alpha0.tgz#4eb414a2cac3a84608d3d49f3609599ed14c388d"
-  integrity sha512-rhmtJfpplsDAENyy2BpGK1DfzT/EzlOPlKx0+ZkR6oVWj4DmA3Z+wpo3sAQBLyaXm20hD1LSYtuQhkQHaCRVSQ==
+"@highpoint/get-ps-token@^0.2.0-alpha1":
+  version "0.2.0-alpha1"
+  resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.2.0-alpha1.tgz#306c8f9318a1c23038a8f8204809768a17bbb5e5"
+  integrity sha512-6dvpiinPKPacwE5FHZR4YXp6kKffNyqboLIhuj2Ob840uDBhPtGETVKefHF/v4fCoEjiV+7DbECuuIGRPpQw1g==
   dependencies:
     request "^2.88.0"
     request-promise "^4.2.2"
