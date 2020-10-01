@@ -1,3 +1,6 @@
+# v1.0.0
+* Upgrade authentication method in @highpoint/get-ps-token for new oci environments
+
 # v0.5.0
 * Add support for uploading *.html files
 
