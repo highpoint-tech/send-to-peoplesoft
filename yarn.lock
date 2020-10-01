@@ -23,9 +23,10 @@
     eslint-config-airbnb-base "^13.1.0"
     eslint-plugin-import "^2.14.0"
 
-"@highpoint/get-ps-token@^0.1.0":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.1.1.tgz#44c786155c4043d99651c158c7c9b3c794f26305"
+"@highpoint/get-ps-token@^0.2.0-alpha0":
+  version "0.2.0-alpha0"
+  resolved "https://registry.yarnpkg.com/@highpoint/get-ps-token/-/get-ps-token-0.2.0-alpha0.tgz#4eb414a2cac3a84608d3d49f3609599ed14c388d"
+  integrity sha512-rhmtJfpplsDAENyy2BpGK1DfzT/EzlOPlKx0+ZkR6oVWj4DmA3Z+wpo3sAQBLyaXm20hD1LSYtuQhkQHaCRVSQ==
   dependencies:
     request "^2.88.0"
     request-promise "^4.2.2"
@@ -1847,10 +1848,10 @@ posthtml-parser@^0.4.2:
   dependencies:
     htmlparser2 "^3.9.2"
 
-posthtml-peoplesoft-binding@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/posthtml-peoplesoft-binding/-/posthtml-peoplesoft-binding-0.1.0.tgz#5cdb7fa7724d1ea53f7cc76be795cbeadcab1cd5"
-  integrity sha512-CJjnvoRCHRhOm3RBqfXHNqk1Dt6Esp/2XIYvwiaH6jkhGujHNSm0HoQUg1odsA5GO29vmad6PW54ginVSqzuMw==
+posthtml-peoplesoft-binding@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/posthtml-peoplesoft-binding/-/posthtml-peoplesoft-binding-0.1.1.tgz#385717ce316a29d20d3400b0f29d8f97cc931eda"
+  integrity sha512-0aC2hQKk9oNyxrlTs9vj7qcsAOhkAIFQyhNJVxo/YGFq7Y7oFYpIEpPpog8TNM4lRmWwNLEhcjyXzZ7iMPfJjg==
 
 posthtml-render@^1.2.2:
   version "1.2.2"
